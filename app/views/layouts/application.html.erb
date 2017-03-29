@@ -5,10 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <title>Флэшкарточкер</title>
 </head>
 <body>
+ 
+  <div class="container">
+    <header class="clearfix">
+      <%= render 'layouts/nav' %>
+    </header>
+  <div>
 
 <%= yield %>
 
+  </div>
+  </div>
 </body>
 </html>
