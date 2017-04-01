@@ -1,0 +1,13 @@
+<%= simple_form_for @card do |f| %>
+  <%= f.error_notification %>
+  
+  <div class="form-inputs">
+  <%= f.input :original_text, error: 'Поле должно быть заполнено' %>
+  <%= f.input :translated_text, error: 'Поле должно быть заполнено и заполнено правильно' %>
+  <%= f.input :review_date, error: 'Поле должно быть заполнено' %>
+  </div>
+  
+  <div class="form-actions">
+  <%= f.button :submit, 'Создать карточку' %>
+  </div>
+  <% end %>

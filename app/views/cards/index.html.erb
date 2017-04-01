@@ -5,7 +5,7 @@
     <tr>
       <th>слово</th>
       <th>перевод</th>
-      <th>дата</th>
+      <th>дата пересмотра</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +16,9 @@
         <td><%= card.original_text %></td>
         <td><%= card.translated_text %></td>
         <td><%= card.review_date.strftime("%d/%m/%Y") %></td>
-        <td><%= link_to 'Show', card %></td>
-        <td><%= link_to 'Edit', edit_card_path(card) %></td>
-        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Показать', card_path(card) %></td>
+        <td><%= link_to 'Редактировать ', edit_card_path(card) %></td>
+        <td><%= link_to 'Удалить', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

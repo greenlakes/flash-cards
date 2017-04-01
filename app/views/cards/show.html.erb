@@ -1,2 +1,19 @@
-<h1>Cards#show</h1>
-<p>Find me in app/views/cards/show.html.erb</p>
+<h1>Показ карточки</h1>
+<table class = "table table-striped">
+  <thead>
+    <tr>
+      <td>Оригинальный текст</td>
+      <td>Перевод</td>
+      <td>Дата пересмотра</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @card.original_text %></td>
+      <td><%= @card.translated_text%></td>
+      <td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
+      <td><%= link_to 'Редактировать', edit_card_path %></td>
+      <td><%= link_to 'Удалить', card_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </tbody>
+</table>
