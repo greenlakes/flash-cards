@@ -9,7 +9,7 @@ doc.css('tr').each do |tr|
   original_text = tr.css('td:nth-child(2)').text
   translated_text = tr.css('td:nth-child(3)').text
 
-  puts "#{original_text}: #{translated_text}"
+  # puts "#{original_text}: #{translated_text}"
 
   Card.create(
   original_text: original_text,
