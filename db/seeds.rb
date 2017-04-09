@@ -1,15 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require "nokogiri"
+require "open-uri"
 
-require 'rubygems'
-require 'nokogiri'   
-require 'open-uri'
-page = Nokogiri::HTML(open("http://iloveenglish.ru/stories/view/basic_english_ch_2_850_samikh_neobkhodimikh_anglijskikh_slov"))   
-puts page.css('div#wrapper div#page.clearfix div.content-wrapper div.content div.story-content table tbody tr td').each do |el|
-  Card.create(original_text: el.first, translated_text: el.next_element)
+url = 'http://1000mostcommonwords.com/1000-most-common-russian-words/'
+
+doc = Nokogiri::HTML(open url)
+
+doc.css('tr').each do |tr|
+  original_text = tr.css('td:nth-child(2)').text
+  translated_text = tr.css('td:nth-child(3)').text
+
+  puts "#{original_text}: #{translated_text}"
+
+  Card.create(
+  original_text: original_text,
+  translated_text: translated_text,
+  review_date: 3.days.from_now
+  )
 end
