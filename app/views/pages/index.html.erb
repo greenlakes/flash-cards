@@ -1,4 +1,40 @@
 <p>
     Первый в мире удобный менеджер флеш-карточек. Именно так.
 </p>
-   
+
+<!--
+  <table class = "table table-striped">
+  <thead>
+    <tr>
+      <td>Оригинальный текст</td>
+      <td>Перевод</td>
+      <td>Дата пересмотра</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @card.original_text%></td>
+      <td><%= @card.translated_text%></td>
+      <td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
+      <td><%= link_to 'Редактировать', edit_card_path(@card) %></td>
+      <td><%= link_to 'Удалить', card_path(@card), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+
+-->
+
+<hr>
+<div class='col-md-4 col-md-offset-4'>
+
+
+      <%= form_tag check_path, class: 'form-group' do  %>
+      <%= hidden_field_tag :id, @card.id %>
+      <%= label_tag 'Оригинал:' %>
+      <p><%= @card.original_text %> </p>
+      <%= label_tag 'Перевод:' %>
+      <p><%= text_field_tag :review_text, "", class: 'form-control' %> </p>
+    <p> <%= submit_tag "Проверить!", class: 'btn btn-primary btn-block' %>  </p>
+<% end %>
+</div>

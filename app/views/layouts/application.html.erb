@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Флешкарточкер</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <title>Флэшкарточкер</title>
-</head>
-<body>
- 
-  <div class="container">
-    <header class="clearfix">
+  <head>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <title>Флэшкарточкер</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <header class="clearfix">
       <%= render 'layouts/nav' %>
-    </header>
-  <div>
+      </header>
 
-<%= yield %>
+    <div>
+     <%= flash_messages %>
 
-  </div>
-  </div>
-</body>
+      <%= yield %>
+
+    </div>
+    </div>
+  </body>
 </html>
